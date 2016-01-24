@@ -4,6 +4,8 @@ A guide I'm working on to introduce new lab members to Pure Data
 Pure data extended is the program you want.
 Pure data vanilla has less functionality, but can be installed on anything (linux, rasberry pi's, etc.)
 
+Get Pd Extended at https://puredata.info 
+
 Feel free to e-mail me at sglandry@mtu.edu if you run into any trouble or have any general questions.
 
 OK THE GOOD STUFF
