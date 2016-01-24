@@ -1,26 +1,23 @@
 # Tri-M-Lab-Pd-Intro-Guide
-# A guide I'm working on to introduce new lab members to Pure Data
-Welcome to Pure Data.
+A guide I'm working on to introduce new lab members to Pure Data
 
-#Pure data extended is the program you want.
-#Pure data vanilla has less functionality, but can be installed on anything (linux, rasberry pi's, etc.)
+Pure data extended is the program you want.
+Pure data vanilla has less functionality, but can be installed on anything (linux, rasberry pi's, etc.)
 
-#Feel free to e-mail me at sglandry@mtu.edu if you run into any trouble or have any general questions.
+Feel free to e-mail me at sglandry@mtu.edu if you run into any trouble or have any general questions.
 
 OK THE GOOD STUFF
 -------------------------------------------------------------------
 
-Look at the first patch, 1-Pd Basics.pd
-Learn some basics structure of objects, and controlling the pitch and volume of a sine wave oscilator. 
+1-Pd Basics.pd -Learn some basics structure of objects, and controlling the pitch and volume of a sine wave oscillator. 
 
 Then go to the help menu dropdown, Pd Help Browser, Manuals, Start Here/, start-here.pd. Follow the instructions inside the patch. This will teach you how to use "cables" to connect object's outlets to other object's inlets. 
 
-Now go back to my list of patches. Check out 2-Signals controlling signals.pd
+2-Signals controlling signals.pd
 
+3-Additive synthesis and envelopes.pd
 
-Hopefully this won't scare you off Pd. If you don't care about sound physics, don't worry, we're almost done with the basics. Check out the patch 3-Additive synthesis and envelopes.pd
-
-Maybe 4-Linear ramp generators.pd should be before 3-additive synthesis and envelopes. 
+4-Linear ramp generators.pd should be before 3-additive synthesis and envelopes. 
 
 6-Metronome and counting.pd
 
