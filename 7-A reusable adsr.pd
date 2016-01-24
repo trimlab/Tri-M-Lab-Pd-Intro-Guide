@@ -1,0 +1,23 @@
+#N canvas 0 0 658 300 10;
+#X obj 70 209 *~;
+#X obj 145 97 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 70 100 osc~ 440;
+#X obj 71 245 output~;
+#X obj 145 120 adsr 100 20 0.7 100;
+#X text 228 209 It will also take default arguments for attack \, decay
+\, sustain \, and release \, if you give it arguments: i.e. \, [adsr
+100 10 0.8 100];
+#X text 226 119 I took the pd [adsr] subpatch (orginally from a pd
+help file) \, threw the sliders in there \, added a "graph on parent"
+window \, then saved it as it's own patch called "adsr.pd". Now \,
+whenever I try to make a new object called [adsr] \, it will bring
+up this. You can control the ADSR values with these sliders from this
+"parent" window.;
+#X text 172 95 2) CLick this toggle to play the note.;
+#X text 141 262 1) turn on sound;
+#X connect 0 0 3 0;
+#X connect 0 0 3 1;
+#X connect 1 0 4 0;
+#X connect 2 0 0 0;
+#X connect 4 0 0 1;

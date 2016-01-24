@@ -1,0 +1,72 @@
+#N canvas 261 59 825 407 10;
+#X text 378 -46 INTRO TO PD;
+#X floatatom 67 52 5 0 0 1 Pitch_(Hz) - -;
+#X obj 62 213 *~;
+#X obj 92 122 vsl 15 40 0 127 0 1 empty empty Volume_(0-127) 0 -9 0
+10 -262144 -1 -1 0 1;
+#X obj 92 167 / 127;
+#X obj 62 250 dac~;
+#X obj -56 -39 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg -56 -17 \; pd dsp \$1;
+#X text 6 -9 Tells PD to turn on sound;
+#X text 129 166 scale volume to 0-1;
+#X text 92 249 digital to audio converter (sound output);
+#X text 122 14 Loadbang object sends a bang on startup;
+#X text -32 -41 1) Click the toggle box object to turn on sound;
+#X text 387 33 You can tell an object's "type" by it's shape:;
+#X obj 402 50 /;
+#X floatatom 404 92 5 0 0 0 - - -;
+#X msg 402 71 message box;
+#X text 402 113 Comments have no box;
+#X obj 386 232 tgl 15 0 empty empty toggle -3 -7 0 10 -262144 -1 -1
+0 1;
+#X obj 386 267 vsl 15 20 0 127 0 0 empty empty vslider 0 -9 0 10 -262144
+-1 -1 0 1;
+#X text 378 203 Common Graphical objects: (interactable by mouse click)
+;
+#X obj 510 234 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 436 86 number boxes can be dragged up and down with mouse;
+#X text 427 50 Object box (they do stuff);
+#X text 479 69 can store things;
+#X text 438 96 If in edit mode \, hold ctrl+drag mouse to change value
+;
+#X text 381 129 Each object has inlets at the top \, and outlets at
+the bottom;
+#X text 381 148 Click and drag from outlet to inlet to connect things
+(in edit mode only \, everything is "locked" in performance mode);
+#X text 86 213 Multiplies sound signal by volume number;
+#X text 381 180 a "~" in the object name means it handles signals;
+#X text 386 -5 Right click any object and select "help" to see what
+it does and how it works in context. You can copy and paste from the
+help windows straight to your patch.;
+#X text 528 233 "Bangs" tell objects to "do";
+#X text -58 62 2) Click n' drag me;
+#X obj 387 311 hradio 15 1 0 4 empty empty hradio 0 -8 0 10 -262144
+-1 -1 0;
+#X text 427 253 comment;
+#X text 407 230 outputs 0 or 1;
+#X text 507 218 bang (Ctrl+shift+B);
+#X text 406 264 default range for sliders is 0-127 (log scale);
+#X obj 63 87 osc~ 440;
+#X text -54 74 will override the;
+#X text -55 86 default argument;
+#X text -55 99 of the osc~ object;
+#X text 115 88 Sine wave oscillator \, argument is default pitch;
+#X obj -43 274 cnv 15 280 80 empty empty Hotkeys_(this_box_is_a_canvas)
+20 12 0 14 -233017 -66577 0;
+#X text -42 308 Ctrl+1 to drop an empty object;
+#X text -42 298 Cntrl+e to switch from locked to edit mode;
+#X text -42 318 Ctrl+2 to drop a message box;
+#X text -42 327 Ctrl+3 to drop a number box;
+#X text -42 338 Ctrl+5 to drop a comment box (does nothing);
+#X floatatom 97 195 5 0 0 0 - - -;
+#X connect 1 0 38 0;
+#X connect 2 0 5 0;
+#X connect 2 0 5 1;
+#X connect 3 0 4 0;
+#X connect 4 0 2 1;
+#X connect 4 0 49 0;
+#X connect 6 0 7 0;
+#X connect 38 0 2 0;

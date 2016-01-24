@@ -1,0 +1,133 @@
+#N canvas 0 38 1017 544 10;
+#X obj 448 77 pddp/dsp;
+#X obj 21 18 cnv 15 450 40 empty empty building_waveforms_with_sines
+20 12 0 24 -228992 -66577 0;
+#X obj 477 383 output~;
+#X obj 532 248 random 64;
+#X obj 532 272 + 32;
+#X obj 532 295 mtof;
+#X msg 418 200 bang;
+#X obj 489 346 *~;
+#X obj 532 319 tabosc4~ wavetable;
+#X obj 450 115 cnv 15 70 60 empty empty empty 20 12 0 14 -241291 -66577
+0;
+#X obj 456 135 vsl 10 32 0 1 0 1 \$0-a \$0-a a 0 -8 0 8 -262144 -1
+-1 1900 0;
+#X obj 469 135 vsl 10 32 0 1 0 1 \$0-d \$0-d d 0 -8 0 8 -262144 -1
+-1 2700 0;
+#X obj 482 135 vsl 10 32 0 1 0 1 \$0-s \$0-s s 0 -8 0 8 -262144 -1
+-1 1000 0;
+#X obj 495 135 vsl 10 32 0 1 0 1 \$0-r \$0-r r 0 -8 0 8 -262144 -1
+-1 1500 0;
+#N canvas 872 101 435 501 env 0;
+#X obj 29 5 inlet;
+#X obj 30 483 outlet~;
+#X obj 29 423 vline~;
+#X msg 29 203 0 \, 1 \$1;
+#X msg 224 375 0 \$1;
+#X obj 254 307 * 500;
+#X obj 59 71 * 500;
+#X obj 100 253 pack;
+#X obj 224 240 random 1000;
+#X msg 100 274 \$2 \$1;
+#X obj 129 148 * 500;
+#X obj 100 189 max 10;
+#X obj 29 114 max 10;
+#X obj 224 352 max 10;
+#X obj 29 25 bang;
+#X obj 129 126 receive \$0-d;
+#X obj 59 50 receive \$0-a;
+#X obj 223 218 delay;
+#X obj 254 287 receive \$0-r;
+#X obj 224 331 float;
+#X obj 224 261 delay;
+#X obj 29 92 float;
+#X obj 46 139 delay;
+#X obj 100 170 float;
+#X obj 122 231 receive \$0-s;
+#X text 243 4 Logic of an envelope;
+#X text 70 34 attack;
+#X text 142 110 decay;
+#X text 269 271 release;
+#X text 132 216 sustain;
+#X text 83 416 We will go over line~ objects later. It's a linear ramp
+generator. You tell the signal where to start \, where to end \, and
+how long to get there.;
+#X text 92 465 This envelope controlled signal is sent out to be multiplied
+to the wavetable oscillator as the amplitude control.;
+#X connect 0 0 14 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 2 0;
+#X connect 5 0 19 1;
+#X connect 6 0 21 1;
+#X connect 7 0 9 0;
+#X connect 8 0 20 0;
+#X connect 9 0 2 0;
+#X connect 10 0 23 1;
+#X connect 11 0 7 0;
+#X connect 11 0 17 0;
+#X connect 12 0 3 0;
+#X connect 12 0 22 0;
+#X connect 13 0 4 0;
+#X connect 14 0 21 0;
+#X connect 15 0 10 0;
+#X connect 16 0 6 0;
+#X connect 17 0 8 0;
+#X connect 18 0 5 0;
+#X connect 19 0 13 0;
+#X connect 20 0 19 0;
+#X connect 21 0 12 0;
+#X connect 22 0 23 0;
+#X connect 23 0 11 0;
+#X connect 24 0 7 1;
+#X restore 417 283 pd env;
+#X text 25 72 Any waveform can be contructed using sine waves. This
+patch allows you to construct a waveform using harmonics.;
+#X obj 418 223 trigger bang bang;
+#X text 514 77 1) turn on sound;
+#X text 475 421 This is a pre-made abstraction to control volume and
+turn sound on and off. We'll go over subpatches and abstractions later.
+;
+#X text 552 399 2) Give it some volume.;
+#X text 453 199 Click the bang message box to trigger the envelope.
+;
+#X obj 42 229 sixteen_harmonics wavetable;
+#X text 41 158 To start with \, here's a sine wave. Harmonics are just
+multiples of the "fundamental" harmonic.;
+#X text 42 189 The ssecond harmonic is just the fundamental harmonic's
+frequency * 2 (1 octave above) \, and so on and so on.;
+#X text 41 364 You can make a triangle or a saw wave by setting each
+harmonic to an amplitude that is the inverse of the harmonic number.
+That means for harmonic 2 \, set the slider to an amplitude of 1/2
+\, or halfway in the middle. For harmonic 3 \, set it at 1/3 \, harmonic
+4 \, set to 1/4 \, and so on...;
+#X text 599 250 picks a random number between 0 and 64;
+#X text 562 271 adds 32 to that number;
+#X text 567 296 Converts that number from a MIDI value to frequency.
+;
+#X text 652 323 Treats the waveform you made in the wavetable as it's
+own custom oscillator.;
+#X text 529 138 Right click and look at the properties of these sliders.
+;
+#X text 528 149 Look at the ranges \, and how they have assigned send
+and recieve symbols.;
+#X text 528 111 3) Attack \, Decay \, Sustain \, Release (if you don't
+know what that means \, do a google image search for "ADSR envelope"
+;
+#X text 472 14 Finally \, A way to keep a note from playing forever:
+envelopes!;
+#X text 526 222 triggers 2 bangs from 1 bang;
+#X text 43 460 Fun tip: You can also draw your own custom wave shapes
+by dragging the tiny line in graph with your mouse. (cntrl+left click
+in edit mode).;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 8 0;
+#X connect 6 0 16 0;
+#X connect 7 0 2 0;
+#X connect 7 0 2 1;
+#X connect 8 0 7 1;
+#X connect 14 0 7 0;
+#X connect 16 0 14 0;
+#X connect 16 1 3 0;
