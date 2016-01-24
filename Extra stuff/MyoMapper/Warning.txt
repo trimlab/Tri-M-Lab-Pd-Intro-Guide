@@ -1,5 +1,0 @@
-This is not mine!!! 
-
-Visit https://github.com/balandinodidonato for the latest version. 
-
-Processing sketch to route the Myo armband data as OSC or MIDI.
