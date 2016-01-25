@@ -1,0 +1,22 @@
+#N canvas 4 29 463 300 10;
+#X declare -lib mrpeach;
+#X obj 309 45 import mrpeach;
+#X obj 309 21 loadbang;
+#X obj 20 23 udpreceive 12000;
+#X obj 20 48 unpackOSC;
+#X obj 20 74 routeOSC /MouseY /MouseX;
+#X floatatom 20 108 5 0 0 1 Y - -;
+#X floatatom 90 110 5 0 0 1 X - -;
+#X text 130 21 Bind to port 12000;
+#X obj 147 217 print;
+#X text 81 48 Turns it into something readable;
+#X text 175 77 matches outlets to arguments.;
+#X text 89 235 Connect [print] to other objects for debugging.;
+#X text 17 137 This patch should recieve the mouse's X and Y positions
+sent from the ProcessingOSCsketch (if the mouse is over the processing
+window).;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;

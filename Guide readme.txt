@@ -22,6 +22,11 @@ Maybe 4-Linear ramp generators.pd should be before 3-additive synthesis and enve
 
 6-Metronome and counting.pd
 
+7- A reusable ADSR patch
+
+
+run both TestOSCmsg.pd AND ProcessingOSCsketch for an OSC networking example. 
+
 
 ______________________________________________________________
 Extra stuff:

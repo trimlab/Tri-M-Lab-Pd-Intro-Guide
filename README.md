@@ -23,6 +23,12 @@ Then go to the help menu dropdown, Pd Help Browser, Manuals, Start Here/, start-
 
 6-Metronome and counting.pd
 
+7-A reusable ADSR patch
+
+TestOSCmsg.pd <--- Start here if you just want to learn how to send OSC msg's using Java's oscp5 library and receive them in Pd.
+	Just run the processingOSCsketch and the testOSCmsg.pd patch at the same time. Hover your mouse over the processing window after running sketch.
+		
+
 
 ______________________________________________________________
 Extra stuff:
