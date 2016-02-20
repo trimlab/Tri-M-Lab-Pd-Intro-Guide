@@ -1,0 +1,35 @@
+#N canvas -1213 243 278 310 10;
+#X obj 97 82 line;
+#X floatatom 97 114 5 0 0 0 - - -;
+#X msg 130 48 0;
+#X obj 97 141 div;
+#X floatatom 97 168 5 0 0 0 - - -;
+#X msg 130 25 reset;
+#X msg 79 26 run;
+#X msg 79 49 5 2500;
+#X obj 87 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 106 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 124 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 143 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 161 260 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 97 215 sel 1 2 3 4 5;
+#X obj 97 192 change;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 14 0;
+#X connect 5 0 2 0;
+#X connect 6 0 7 0;
+#X connect 7 0 0 0;
+#X connect 13 0 8 0;
+#X connect 13 1 9 0;
+#X connect 13 2 10 0;
+#X connect 13 3 11 0;
+#X connect 13 4 12 0;
+#X connect 14 0 13 0;

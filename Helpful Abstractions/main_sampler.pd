@@ -1,0 +1,3 @@
+#N canvas 334 124 450 300 10;
+#X obj 60 235 output~;
+#X obj 99 111 samplerguy 1;

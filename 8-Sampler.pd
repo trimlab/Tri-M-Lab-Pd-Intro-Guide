@@ -1,0 +1,58 @@
+#N canvas 157 0 864 670 10;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array sample1 164094 float 2;
+#X coords 0 1 164094 -1 100 30 1 0 0;
+#X restore 343 111 graph;
+#X obj 271 144 openpanel;
+#X obj 271 120 bng 15 250 50 0 empty empty load_sample -15 -10 0 10
+-262144 -1 -1;
+#X msg 271 165 read -resize \$1 sample1;
+#X obj 271 186 soundfiler;
+#X obj 271 213 expr 44100 / $f1;
+#X obj 271 263 phasor~;
+#X obj 270 310 tabread4~ sample1;
+#X obj 270 355 output~;
+#X obj 270 285 *~;
+#X obj 271 242 f;
+#X obj 182 178 sel 1;
+#X obj 182 122 tgl 15 0 empty empty On/Off -10 -10 0 10 -262144 -1
+-1 0 1;
+#X msg 182 208 bang;
+#X msg 220 208 0;
+#X msg 310 241 1;
+#X text 445 117 Table that holds the sample;
+#X text 424 311 Reads the table sample1;
+#X text 422 282 turns the 0-1 phasor signal to 0-samplesize;
+#X text 421 263 generates a signal from 0-1 over lenght of the sample
+;
+#X text 331 143 opens panel;
+#X text 421 156 reads and resizes sample1 table with sample (\$1 is
+replaced with filepath);
+#X text 422 182 Does the filling in table magic \, and outputs length
+of samples in samples.;
+#X text 422 209 samplerate divided by length in samples = lenght of
+sample in seconds.;
+#X text 422 237 [f] stores length of sample (in seconds) \, sends out
+when banged. Second outlets resets the phase of phasor~;
+#X text 348 364 if this object isn't working \, find the output~ abstraction
+\, or just use [dac~];
+#X text 81 120 sends out 0/1;
+#X text 40 208 turns on or off phasor;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 9 1;
+#X connect 5 0 10 1;
+#X connect 6 0 9 0;
+#X connect 7 0 8 0;
+#X connect 7 0 8 1;
+#X connect 9 0 7 0;
+#X connect 10 0 6 0;
+#X connect 11 0 13 0;
+#X connect 11 1 14 0;
+#X connect 12 0 11 0;
+#X connect 13 0 10 0;
+#X connect 13 0 15 0;
+#X connect 14 0 6 0;
+#X connect 15 0 6 1;
